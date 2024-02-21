@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const product = <%-JSON.stringify(product)%> ;
+    </script>
+    <H1><%=product.title %></H1>
+    <h3>Owner: <%=product.owner.username %></h3>
+
+    <ul>
+      <li>
+        <img src="<%=product.images.url %>" alt="..." />
+      </li>
+
+      <li>Price: <%=product.price %></li>
+      <li>Location: <%=product.location %></li>
+      <li>Tag: <%=product.tag %></li>
+    </ul>
+  </body>
+</html>

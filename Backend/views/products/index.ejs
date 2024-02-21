@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Entries</title>
+  </head>
+  <body>
+    <h1>All Entries</h1>
+
+    <% if(currUser){ %>
+    <h3>Current User: <%=currUser.username %></h3>
+    <form method="GET" action="/logout">
+      <button type="submit">Logout</button>
+    </form>
+    <% } %><% if(!currUser){ %>
+    <form method="GET" action="/login">
+      <button type="submit">Login</button>
+    </form>
+    <% } %>
+
+    <form method="GET" action="/products/new">
+      <button type="submit">Add a New Product</button>
+    </form>
+    <ol>
+      <% for(let product of products){ %>
+
+      <li style="margin: 20px; border: 2px solid black">
+        <a href="/products/<%= product._id %>">
+          <h3><%= product.title %></h3>
+          <ul>
+            <li><img src="<%=product.images.url %>" alt="..." /></li>
+
+            <li>Price: <%=product.price %></li>
+            <li>Location: <%=product.location %></li>
+            <li>Tag: <%=product.tag %></li>
+          </ul>
+        </a>
+
+        <form method="GET" action="/products/<%= product._id %>/edit">
+          <button type="submit">Edit</button>
+        </form>
+        <form
+          method="POST"
+          action="/products/<%= product._id %>?_method=DELETE"
+        >
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      <% } %>
+    </ol>
+  </body>
+</html>

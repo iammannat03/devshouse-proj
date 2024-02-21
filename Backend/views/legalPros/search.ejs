@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="POST" action="/legalPros/search">
+      <input
+        type="text"
+        placeholder="Enter the name of the lawyer you want to search"
+        name="name"
+      />
+      <button type="submit">Search</button>
+    </form>
+    <%if(result){%>
+    <h3>Result:</h3>
+    <h4><%=result %></h4>
+    <% } %>
+  </body>
+</html>

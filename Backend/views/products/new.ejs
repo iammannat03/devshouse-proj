@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <H1>Add a New Product</H1>
+    <form method="POST" action="/products" enctype="multipart/form-data">
+      <input
+        type="text"
+        name="product[title]"
+        placeholder="Enter Title"
+      /><br />
+      <input
+        type="file"
+        name="product[images]"
+        placeholder="Enter first image"
+      /><br />
+      <input
+        type="number"
+        name="product[price]"
+        placeholder="Enter price"
+      /><br />
+      <input
+        type="text"
+        name="product[location]"
+        placeholder="Enter location"
+      /><br />
+      <select name="product[tag]" id="">
+        <option value="sold">sold</option>
+        <option value="unsold">unsold</option>
+        <option value="not available">not available</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+  </body>
+</html>

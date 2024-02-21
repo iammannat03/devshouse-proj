@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Entries</title>
+  </head>
+  <body>
+    <h1>All Legal Professionals</h1>
+
+    <% if(currUser){ %>
+    <h3>Current User: <%=currUser.username %></h3>
+    <form method="GET" action="/logout">
+      <button type="submit">Logout</button>
+    </form>
+    <% } %><% if(!currUser){ %>
+    <form method="GET" action="/login">
+      <button type="submit">Login</button>
+    </form>
+    <% } %>
+
+    <ol>
+      <% for(let legalPro of legalPros){ %>
+
+      <li style="margin: 20px">Name= <%= legalPro.personalInfo.name %></li>
+      <% } %>
+    </ol>
+  </body>
+</html>
